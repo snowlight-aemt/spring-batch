@@ -1,0 +1,37 @@
+spring:
+  profiles:
+    active: mysql
+
+---
+spring:
+  config:
+    activate:
+      on-profile: mysql
+  datasource:
+    hikari:
+      jdbc-url: jdbc:h2:mem:springbatch
+      driver-class-name: org.h2.Driver
+      username: sa
+      password:
+      pool-name: TestHikariPool
+
+
+  batch:
+    jdbc:
+      initialize-schema: always
+
+---
+spring:
+  config:
+    activate:
+      on-profile: mysql
+  datasource:
+    hikari:
+      jdbc-url: jdbc:mysql://localhost:13306/springbatch?serverTimezone=UTC&characterEncoding=UTF-8
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: snow
+      password: snow
+      pool-name: TestHikariPool
+  batch:
+    jdbc:
+      initialize-schema: always
