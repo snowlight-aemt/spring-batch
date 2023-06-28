@@ -3,6 +3,7 @@ package me.snowlight.springbatch2_7;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
+import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
@@ -10,6 +11,8 @@ import org.springframework.batch.core.configuration.annotation.StepBuilderFactor
 import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.Map;
 
 @Slf4j
 @Configuration
@@ -28,13 +31,21 @@ public class DbJobConfig {
                 .next(step2())
                 .build();
     }
-
     @Bean
     public Step step1() {
         return stepBuilderFactory
                 .get("step1")
-                .tasklet((a, b) -> {
-                    log.info("Hello Spring Batch");
+                .tasklet((contribution, chunkContext) -> {
+                    log.info("step1 has executed !!");
+
+                    JobParameters jobParameters = contribution.getStepExecution().getJobExecution().getJobParameters();
+                    jobParameters.getString("name");
+                    jobParameters.getLong("age");
+                    jobParameters.getDate("date");
+                    jobParameters.getDouble("dollar");
+
+                    Map<String, Object> jobParameters1 = chunkContext.getStepContext().getJobParameters();
+
                     return RepeatStatus.FINISHED;
                 })
                 .build();
@@ -44,8 +55,8 @@ public class DbJobConfig {
     public Step step2() {
         return stepBuilderFactory
                 .get("step2")
-                .tasklet((a, b) -> {
-                    log.info("Hello Spring Batch");
+                .tasklet((contribution, chunkContext) -> {
+                    log.info("step2 has executed !!");
                     return RepeatStatus.FINISHED;
                 })
                 .build();
