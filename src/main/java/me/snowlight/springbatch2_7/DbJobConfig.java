@@ -57,6 +57,7 @@ public class DbJobConfig {
                 .get("step2")
                 .tasklet((contribution, chunkContext) -> {
                     log.info("step2 has executed !!");
+//                    throw new RuntimeException("UnKnown Exception !!");
                     return RepeatStatus.FINISHED;
                 })
                 .build();

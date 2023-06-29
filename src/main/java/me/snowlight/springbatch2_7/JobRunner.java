@@ -15,7 +15,7 @@ import java.util.Date;
 //  java -jar spring-batch-2_7-0.0.1-SNAPSHOT.jar 'name=sdh' 'age(long)=22L' 'date(date)=2023/06/28' 'dollar(double)=33.4'
 //  자동 설정 켜고 아래에 컴포넌트 주석
 
-@Component
+//@Component
 public class JobRunner implements ApplicationRunner {
     private JobLauncher jobLauncher;
     private Job job;
