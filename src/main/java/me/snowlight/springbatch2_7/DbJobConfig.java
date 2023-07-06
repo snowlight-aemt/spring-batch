@@ -35,19 +35,7 @@ public class DbJobConfig {
     public Step step1() {
         return stepBuilderFactory
                 .get("step1")
-                .tasklet((contribution, chunkContext) -> {
-                    log.info("step1 has executed !!");
-
-                    JobParameters jobParameters = contribution.getStepExecution().getJobExecution().getJobParameters();
-                    jobParameters.getString("name");
-                    jobParameters.getLong("age");
-                    jobParameters.getDate("date");
-                    jobParameters.getDouble("dollar");
-
-                    Map<String, Object> jobParameters1 = chunkContext.getStepContext().getJobParameters();
-
-                    return RepeatStatus.FINISHED;
-                })
+                .tasklet(new CustomTasklet())
                 .build();
     }
 
@@ -57,7 +45,6 @@ public class DbJobConfig {
                 .get("step2")
                 .tasklet((contribution, chunkContext) -> {
                     log.info("step2 has executed !!");
-//                    throw new RuntimeException("UnKnown Exception !!");
                     return RepeatStatus.FINISHED;
                 })
                 .build();
