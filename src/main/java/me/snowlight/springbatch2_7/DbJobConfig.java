@@ -29,6 +29,7 @@ public class DbJobConfig {
                 .get("helloJOB")
                 .start(step1())
                 .next(step2())
+                .next(step3())
                 .build();
     }
     @Bean
@@ -44,7 +45,18 @@ public class DbJobConfig {
         return stepBuilderFactory
                 .get("step2")
                 .tasklet((contribution, chunkContext) -> {
-                    log.info("step2 has executed !!");
+                    log.info("# STEP2 has executed !!");
+                    return RepeatStatus.FINISHED;
+                })
+                .build();
+    }
+
+    @Bean
+    public Step step3() {
+        return stepBuilderFactory
+                .get("step3")
+                .tasklet((contribution, chunkContext) -> {
+                    log.info("# STEP3 has executed !!");
                     return RepeatStatus.FINISHED;
                 })
                 .build();
