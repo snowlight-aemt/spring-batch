@@ -1,0 +1,7 @@
+## Batic Start
+POST http://localhost:8080/batch
+Content-Type: application/json
+
+{
+  "id": "BatchID"
+}
