@@ -6,7 +6,7 @@ spring:
 spring:
   config:
     activate:
-      on-profile: mysql
+      on-profile: h2
   datasource:
     hikari:
       jdbc-url: jdbc:h2:mem:springbatch
@@ -33,7 +33,9 @@ spring:
       password: snow
       pool-name: TestHikariPool
   batch:
+    job:
+      enabled: true
+      names: ${job.name:NONE}
     jdbc:
       initialize-schema: always
-    job:
-      enabled: false
+#      table-prefix: SYSTEM_
