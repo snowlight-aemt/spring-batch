@@ -2,7 +2,7 @@
 
 ---
 ### Ch03 Spring Batch Domain
-|Chapter|Branch|
+|Chapter|URL|
 |:---:|:---|
 | Ch3 | [Ch3 - 03 job Instance](https://github.com/snowlight-aemt/spring-batch/tree/ch3/03-job-instance) | 
 | Ch3 | [Ch3 - 04 job Parameter](https://github.com/snowlight-aemt/spring-batch/tree/ch3/04-job-parameter) | 
@@ -15,7 +15,7 @@
 | Ch3 | [Ch3 - 11 Job Launcher](https://github.com/snowlight-aemt/spring-batch/tree/9a40901e1cae0427f09acff578f0da670d15793d) | 
 
 ### Ch04 Job
-|Chapter|Branch|
+|Chapter|URL|
 |:---:|:---|
 | Ch4 | [Ch4 - 01 Job Init](https://github.com/snowlight-aemt/spring-batch/tree/85733b148ffe1f86223cc334ee100be753490644) | 
 
