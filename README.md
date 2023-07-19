@@ -19,6 +19,6 @@
 |:---:|:---|
 | Ch4 | [Ch4 - 01 Job Init](https://github.com/snowlight-aemt/spring-batch/tree/85733b148ffe1f86223cc334ee100be753490644) | 
 | Ch4 | [Ch4 - 04 JobBuilderFactory](https://github.com/snowlight-aemt/spring-batch/tree/ced36167de9fcd33a0dd5b47b6b3dcfdbab631a4) | 
-| Ch4 | [Ch4 - 04 JobBuilderFactory](https://github.com/snowlight-aemt/spring-batch/tree/748e850f68a105fcd80faf05c3926e985e033081) | 
+| Ch4 | [Ch4 - 05 SimpleJob](https://github.com/snowlight-aemt/spring-batch/tree/748e850f68a105fcd80faf05c3926e985e033081) | 
 
 
