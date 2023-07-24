@@ -26,9 +26,7 @@ public class DbJobConfig {
         SimpleJobBuilder simpleJobBuilder = jobBuilderFactory
                 .get("helloJOB1")
                 .start(step1())
-                .validator(new DefaultJobParametersValidator(
-                        new String[] {"name", "date"},
-                        new String[] {"test"}))
+                .validator(new CustomJobParametersValidator())
                 ;
 
         Job job = simpleJobBuilder.next(step2())
