@@ -34,7 +34,7 @@ spring:
       pool-name: TestHikariPool
   batch:
     job:
-      enabled: true
+#      enabled: true
       names: ${job.name:NONE}
     jdbc:
       initialize-schema: always

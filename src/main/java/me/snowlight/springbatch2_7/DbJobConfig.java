@@ -7,6 +7,7 @@ import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
+import org.springframework.batch.core.job.DefaultJobParametersValidator;
 import org.springframework.batch.core.job.builder.SimpleJobBuilder;
 import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.context.annotation.Bean;
@@ -16,19 +17,24 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @RequiredArgsConstructor
 @EnableBatchProcessing
-public class DbJobConfig1 {
+public class DbJobConfig {
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
 
     @Bean
-    public Job helloJob1() {
+    public Job helloJob() {
         SimpleJobBuilder simpleJobBuilder = jobBuilderFactory
                 .get("helloJOB1")
-                .start(step1());
+                .start(step1())
+                .validator(new DefaultJobParametersValidator(
+                        new String[] {"name", "date"},
+                        new String[] {"test"}))
+                ;
 
         Job job = simpleJobBuilder.next(step2())
                 .next(step3())
-                .build();
+                .build()
+                ;
 
         return job;
     }
