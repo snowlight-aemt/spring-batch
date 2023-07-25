@@ -21,5 +21,6 @@
 | Ch4 | [Ch4 - 04 JobBuilderFactory](https://github.com/snowlight-aemt/spring-batch/tree/ced36167de9fcd33a0dd5b47b6b3dcfdbab631a4) | 
 | Ch4 | [Ch4 - 05 SimpleJob](https://github.com/snowlight-aemt/spring-batch/tree/748e850f68a105fcd80faf05c3926e985e033081) | 
 | Ch4 | [Ch4 - 07 Validator - Custom](https://github.com/snowlight-aemt/spring-batch/tree/9fbf51e4c173000fb4a03d4e64b1dd041657fb74) | 
+| Ch4 | [Ch4 - 08 SimpleJob - preventRestart](https://github.com/snowlight-aemt/spring-batch/tree/0780a820107ebf55b89b7ec3d2dae729f26bd1d3) | 
 
 
