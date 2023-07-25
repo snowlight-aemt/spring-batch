@@ -8,12 +8,13 @@ import org.springframework.batch.core.configuration.annotation.EnableBatchProces
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.core.job.builder.SimpleJobBuilder;
+import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-// preventRestart
-// JobInstance already exists and is not restartable
+// JobParametersIncrementer
+// RunIdIncrementer
 
 @Slf4j
 @Configuration
@@ -28,11 +29,12 @@ public class DbJobConfig {
         SimpleJobBuilder simpleJobBuilder = jobBuilderFactory
                 .get("helloJOB1")
                 .start(step1())
+//                .incrementer(new CustomJobParametersIncrementer())
+                .incrementer(new RunIdIncrementer())
                 ;
 
         Job job = simpleJobBuilder.next(step2())
                 .next(step3())
-                .preventRestart()
                 .build()
                 ;
 
