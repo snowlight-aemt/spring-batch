@@ -13,9 +13,6 @@ import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-// JobParametersIncrementer
-// RunIdIncrementer
-
 @Slf4j
 @Configuration
 @RequiredArgsConstructor
@@ -34,7 +31,6 @@ public class DbJobConfig {
 
         Job job = simpleJobBuilder.next(step2())
                 .next(step3())
-                .incrementer(new RunIdIncrementer())
                 .build()
                 ;
 
