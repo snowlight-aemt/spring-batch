@@ -29,12 +29,12 @@ public class DbJobConfig {
         SimpleJobBuilder simpleJobBuilder = jobBuilderFactory
                 .get("helloJOB1")
                 .start(step1())
-//                .incrementer(new CustomJobParametersIncrementer())
                 .incrementer(new RunIdIncrementer())
                 ;
 
         Job job = simpleJobBuilder.next(step2())
                 .next(step3())
+                .incrementer(new RunIdIncrementer())
                 .build()
                 ;
 
